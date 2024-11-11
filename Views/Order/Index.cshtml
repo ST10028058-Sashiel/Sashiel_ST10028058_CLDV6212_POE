@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Sashiel_ST10028058_CLDV6212_POE.Models.Order>
+
+@{
+    ViewData["Title"] = "Order List";
+}
+
+<h2>Order List</h2>
+
+<!-- Add Order Button -->
+<div>
+    <a asp-action="Create" class="btn btn-primary">Add Order</a>
+</div>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Order Date</th>
+            <th>Order Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.CustomerName</td>
+                <td>@order.Product?.Product_Name</td>
+                <td>@order.Quantity</td>
+                <td>@order.OrderDate.ToString("yyyy-MM-dd")</td>
+                <td>@order.Order_Address</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@order.OrderId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

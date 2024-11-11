@@ -1,0 +1,50 @@
+SET SERVEROUTPUT ON;
+
+BEGIN
+    -- Counter to differentiate the first customer for name formatting
+    DECLARE
+        v_counter NUMBER := 0;  -- Counter variable to track iteration
+        
+    BEGIN
+        -- Cursor to fetch the required data from Invoice, Customer, Employee, Donation, and Delivery tables
+        FOR rec IN (
+            SELECT 
+                c.First_Name,                                           -- Customer First Name
+                c.Surname,                                              -- Customer Last Name
+                SUBSTR(e.First_Name, 1, 1) || '.' || e.Surname AS Employee_Name,  -- Employee name formatted as First Initial.Last Name
+                d.Donation,                                             -- Donation description
+                TO_CHAR(del.Dispatch_Date, 'DD-MON-YY') AS Dispatch_Date, -- Formatted Dispatch Date
+                TO_CHAR(del.Delivery_Date, 'DD-MON-YY') AS Delivery_Date, -- Formatted Delivery Date
+                (del.Delivery_Date - del.Dispatch_Date) AS Days_To_Delivery -- Calculating days between dispatch and delivery
+            FROM 
+                Invoice i
+            JOIN 
+                Customer c ON i.Customer_ID = c.Customer_ID             -- Join Invoice with Customer table
+            JOIN 
+                Employee e ON i.Employee_ID = e.Employee_ID             -- Join Invoice with Employee table
+            JOIN 
+                Donation d ON i.Donation_ID = d.Donation_ID             -- Join Invoice with Donation table
+            JOIN 
+                Delivery del ON i.Delivery_ID = del.Delivery_ID         -- Join Invoice with Delivery table
+            WHERE 
+                i.Customer_ID = 11011                                   -- Filter for customer ID 11011
+        )
+        LOOP
+            -- Increment the counter
+            v_counter := v_counter + 1;
+            
+            -- Conditional formatting for the customer name
+            -- Always format as 'First Initial.Last Name'
+            DBMS_OUTPUT.PUT_LINE('Customer: ' || SUBSTR(rec.First_Name, 1, 1) || '. ' || rec.Surname);
+            
+            -- Output the remaining data
+            DBMS_OUTPUT.PUT_LINE('Employee: ' || rec.Employee_Name);  -- Employee name as First Initial.Last Name
+            DBMS_OUTPUT.PUT_LINE('Donation: ' || rec.Donation);
+            DBMS_OUTPUT.PUT_LINE('Dispatch Date: ' || rec.Dispatch_Date);
+            DBMS_OUTPUT.PUT_LINE('Delivery Date: ' || rec.Delivery_Date);
+            DBMS_OUTPUT.PUT_LINE('Days to Delivery: ' || rec.Days_To_Delivery);
+            DBMS_OUTPUT.PUT_LINE('-----------------------------------');
+        END LOOP;
+    END;
+END;
+/

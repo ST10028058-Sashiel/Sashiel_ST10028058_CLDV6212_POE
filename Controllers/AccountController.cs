@@ -6,6 +6,8 @@ using Sashiel_ST10028058_CLDV6212_POE.Models;
 
 namespace Sashiel_ST10028058_CLDV6212_POE.Areas.Identity.Pages.Account
 {
+    //Controller to Display All Users to the Admin Only
+
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -45,3 +47,22 @@ namespace Sashiel_ST10028058_CLDV6212_POE.Areas.Identity.Pages.Account
         public string Role { get; set; }
     }
 }
+
+//# Assistance provided by ChatGPT
+//# Code and support generated with the help of OpenAI's ChatGPT.
+// code attribution
+// W3schools
+//https://www.w3schools.com/cs/index.php
+
+// code attribution
+//Bootswatch
+//https://bootswatch.com/
+
+// code attribution
+// https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-8.0&tabs=visual-studio
+
+// code attribution
+// https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-8.0&tabs=visual-studio
+
+// code attribution
+// https://youtu.be/qvsWwwq2ynE?si=vwx2O4bCAFDFh5m_

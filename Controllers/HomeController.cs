@@ -6,6 +6,8 @@ namespace Sashiel_ST10028058_CLDV6212_POE.Controllers
 {
     public class HomeController : Controller
     {
+        //Home an About Us Controller
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

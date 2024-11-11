@@ -20,33 +20,33 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
                         </li>
 
                         @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Index">Users</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Index">Users</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="AppRoles" asp-action="Index">Roles</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="AppRoles" asp-action="Index">Roles</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="File" asp-action="Index">Uploads</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="File" asp-action="Index">Uploads</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="IndexAdmin">Product</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Orders</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Order" asp-action="Index">Orders</a>
                             </li>
 
                         }
@@ -54,15 +54,15 @@
                         @if (User.IsInRole("Customer"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="File" asp-action="Index">Uploads</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="File" asp-action="Index">Uploads</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Orders</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Order" asp-action="Index">Orders</a>
                             </li>
 
                         }

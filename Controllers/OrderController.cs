@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Sashiel_ST10028058_CLDV6212_POE.Data;
 using Sashiel_ST10028058_CLDV6212_POE.Models;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Sashiel_ST10028058_CLDV6212_POE.Controllers
